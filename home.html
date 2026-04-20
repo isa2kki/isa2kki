@@ -11,9 +11,9 @@
     <style>
     body {  
         margin: 15;
-        background-image: url("YumeBG3.png");
+        background-image: url("images/YumeBG3.png");
         background-position: center;
-        height: 150vh;
+        height: 130vh;
         color: white;
         text-align: center;
         font-family: 'Lexend', sans-serif;
@@ -38,8 +38,23 @@
     /* Top title */
     #header-img {
         margin-bottom: 0px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .img-frame {
+        width: 200px;
         height: 200px;
-        object-fit: cover;
+        padding: 15px;
+        
+        margin: 0 auto;
+
+        border: 20px solid transparent;
+        border-image: url("images/2kkiborder2.png") 35 stretch;
+        background-color: black;
+
+        overflow: hidden; /* important */
     }
 
     #title {
@@ -51,7 +66,7 @@
     /* Main box */
     .container {
         width: 60%;
-        height: 100vh;
+        height: 90vh;
         margin: 20px auto;
         display: flex;
         background: #302749;
@@ -61,11 +76,11 @@
     /* Left tabs */
     .tabs {
         width: 225px;
-        background-image: url(YumeBG3.png);
+        background-image: url("images/YumeBG3.png");
         display: flex;
         flex-direction: column;
         border: 20px solid transparent;
-        border-image: url("2kkiborder.png") 35 stretch;
+        border-image: url("images/2kkiBorder.png") 35 stretch;
     }
 
     .tabs button {
@@ -79,13 +94,30 @@
         cursor: pointer;
         text-align: center;
         /*flex: 1; */
-        transition: 0.15s;
+        transition: 0.2s;
+    }
+
+    @keyframes glowPulse {
+        0% {
+            box-shadow: 0 0 5px #ffffff;
+        }
+        50% {
+            box-shadow: 0 0 20px #ffffff;
+        }
+        100% {
+            box-shadow: 0 0 5px #ffffff;
+    }
     }
 
     .tabs button:hover {
-        outline: 5px solid white;
-        outline-offset: 3px;
-        box-shadow: 0 0 8px white;
+        animation: glowPulse 1.5s infinite;
+        transform: scale(1.05);
+    }
+
+    .tabs button.active {
+        outline: 3px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 2px;
+        animation: glowPulse 2s infinite;
     }
 
     /* Right content */
@@ -95,11 +127,7 @@
         overflow-y: auto; /* THIS makes it scroll */
         text-align: left;
         border: 20px solid transparent;
-        border-image: url("2kkiborder.png") 35 stretch;
-    }
-
-    .tabs button.active {
-        outline: 2px solid white;
+        border-image: url("images/2kkiBorder.png") 35 stretch;
     }
 
     h2 {
@@ -131,11 +159,21 @@
     }
 
     a {
-        display: inline;
         color: #8c00ff;
         text-decoration: none;
         font-size: 20px;
+    }
 
+    .img-decoration {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+
+    .img-row {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
     }
 
     .img-link {
@@ -151,28 +189,33 @@
     </style>
 </head>
 
+<div class="img-frame">
+    <img id="header-img" src="images/Yumehop.png">
+</div>
+
+<div class="img-decoration"></div>
+
 <div class="img-link"></div>
 
 <div class="bg-overlay"></div>
-
-<img id="header-img" src="Yumehop.png">
 
 <h1 id="title">Welcome!</h1>
 
 <div class="container">
 
     <div class="tabs">
-        <button onclick="showTab('about me', 'Welcome!', 'Yumehop.png')">About me</button>
-        <button onclick="showTab('projects', 'Projects', 'Yumetired.png')">Projects</button>
-        <button onclick="showTab('journal', 'Journal', 'UroMusic.png')">Journal</button>
-        <button onclick="showTab('fav media', 'Fav Media', 'UroWhat!.png')">Fav Media</button>
-        <button onclick="showTab('inspirations', 'Inspirations', 'UroHat.png')">Inspirations</button>
-        <button onclick="showTab('socials', 'Socials', 'UroCat.png')">Socials</button>
+        <button onclick="showTab('about me', 'Welcome!', 'images/Yumehop.png')">About me</button>
+        <button onclick="showTab('projects', 'Projects', 'images/Yumetired.png')">Projects</button>
+        <button onclick="showTab('journal', 'Journal', 'images/UroMusic.png')">Journal</button>
+        <button onclick="showTab('fav media', 'Fav Media', 'images/UroWhat!.png')">Fav Media</button>
+        <button onclick="showTab('inspirations', 'Inspirations', 'images/UroHat.png')">Inspirations</button>
+        <button onclick="showTab('find me', 'Find me', 'images/UroCat.png')">Find me</button>
     </div>
 
     <div class="content">
         <div id="about me" class="tab-content">
-            <h2>This is my website! I've never built a site before using HTML so pardon any bugs or ill formatting</h2>
+            <h2>This is my website! This is my first time building a site using HTML so pardon any bugs or ill formatting</h2>
+            <img src="images/UroBoat.gif" class="img-decoration">
         </div>
 
         <div id="projects" class="tab-content" style="display:none;">
@@ -205,38 +248,25 @@
             </p>
         </div>        
 
-        <div id="socials" class="tab-content" style="display:none;">
+        <div id="find me" class="tab-content" style="display:none;">
             <h2>Some places you can find me</h2>
-            <a href="https://x.com/Agent0vershown" target="_blank">
-                <img src="X.png" alt="My sports centered twt account" class="img-link">
-            </a>
-            <a href="https://www.instagram.com/itsstillisa/" target="_blank">
-                <img src="Instagram.png" alt="My Instagram!" class="img-link">
-            </a>
-            <a href="https://open.spotify.com/user/31s3nsdfqzjxz4xtxv5palxtau44?si=049306eddbe347f2" target="_blank">
-                <img src="Spotify.png" alt="My spotify!" class="img-link">
-            </a>
-            <a href="https://discord.gg/qVpsY337" target="_blank">
-                <img src="Discord.png" alt="Add me on discord!" class="img-link">
-            </a>
-
+            <div class="img-row">
+                <a href="https://www.instagram.com/itsstillisa/" target="_blank">
+                    <img src="images/Instagram.png" alt="My Instagram!" class="img-link">
+                </a>
+                <a href="https://open.spotify.com/user/31s3nsdfqzjxz4xtxv5palxtau44?si=049306eddbe347f2" target="_blank">
+                    <img src="images/Spotify.png" alt="My spotify!" class="img-link">
+                </a>
+                <a href="https://github.com/isa2kki" target="_blank">
+                    <img src="images/github.png" alt="My github account" class="img-link">
+                </a>
+                <a href="mailto:2007iml@gmail.com" target="_blank">
+                    <img src="images/Gmail.png" alt="Add me on discord!" class="img-link">
+                </a>
+            </div>
         </div>
       
     </div>
-<script>
-function showTab(tabId, titleText, imgSrc) {
-    let tabs = document.getElementsByClassName("tab-content");
-
-    for (let i = 0; i < tabs.length; i++) {
-        tabs[i].style.display = "none";
-    }
-
-    document.getElementById(tabId).style.display = "block";
-
-    document.getElementById("title").innerText = titleText;
-    document.getElementById("header-img").src = imgSrc;
-}
-</script>
 
 <script>
 function showTab(tabId, titleText, imgSrc) {

@@ -18,7 +18,7 @@
             font-family: 'Yume2kki', sans-serif;
             height: 100vh;
             margin: 0;
-            background-image: url("YumeBG3.png");
+            background-image: url("images/YumeBG3.png");
             color: white;
             text-align: center;
             padding: 0px;
@@ -26,6 +26,18 @@
         img {
             transition: 0.2s;
             cursor: pointer;
+            width: 200px;
+            height: 200px;
+            padding: 15px;
+            object-fit: contain;
+            
+            margin: 0 auto;
+
+            border: 20px solid transparent;
+            border-image: url("images/2kkiborder2.png") 35 stretch;
+            background-color: black;
+
+            overflow: hidden; /* important */
         }
 
         img:hover {
@@ -57,6 +69,18 @@
             margin: 0 0 5px 0;
             opacity: 0.8;
         }
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 5px #ffffff;
+            }
+            50% {
+                box-shadow: 0 0 20px #ffffff;
+            }
+            100% {
+                box-shadow: 0 0 5px #ffffff;
+        }
+        }
+
         .enter {
             display: inline-block;
             margin-top: 20px;
@@ -68,26 +92,15 @@
         }
 
         .enter:hover {
-            background: #bca797;
-            color: black;
+            animation: glowPulse 1.5s infinite;
+            transform: scale(1.05);
         }
 
-        b {
-            font-size: 2em;
-            position: fixed;
-            bottom: 150px;
-            right: 250px;   
-            color: #bca797;
-        }
         a {
             display: inline;
             color: #ffffff;
             text-decoration: none;
             font-size: 2.5em;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -99,7 +112,7 @@
     <p class="subtitle">Welcome to my page!</p>
 
     <a href="home.html">
-        <img src="Urovershown.png" style="
+        <img src="images/Urovershown.png" style="
         display: block;
         width: 200px;
         margin: 10px auto
