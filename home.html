@@ -4,7 +4,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-        
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta charset="UTF-8">
     <title>Isa</title>
@@ -174,18 +177,104 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        overflow: auto;
     }
 
     .img-link {
         transition: 0.2s;
         cursor: pointer;
-        width: 150px;
+        width: 80%;
     }
     .img-link:hover {
         transform: scale(1.1);
         opacity: 1;  
     }
 
+    @media (max-width: 768px) {
+        body {
+            height: auto;
+        }
+        .container {
+            width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+        .img-frame {
+            width: 55px;
+            height: 55px;
+            padding: 10px;
+            
+            margin: 0 auto;
+
+            border: 16px solid transparent;
+            border-image: url("images/2kkiborder2.png") 35 stretch;
+            background-color: black;
+
+            overflow: hidden; /* important */
+        }
+        .img-decoration {
+            width: 100%;
+        }
+        .tabs {
+            width: 50px;
+            background-image: url("images/YumeBG3.png");
+            display: flex;
+            flex-direction: column;
+            border: 15px solid transparent;
+            border-image: url("images/2kkiBorder.png") 35 stretch;
+        }
+        .tabs button {
+            font-family: Yume2kki;
+            font-size: 5pt;
+            padding: 5px;
+            margin-top: 10px;
+            text-align: center;
+            /*flex: 1; */
+        }
+        .tabs button.active {
+            outline: 3px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 2px;
+            animation: glowPulse 2s infinite;
+        }
+        .content {
+            flex: 1;
+            padding: 10px;
+            border: 15px solid transparent;
+            border-image: url("images/2kkiBorder.png") 35 stretch;
+        }
+        #title {
+            margin-top: 5px;
+            font-size: 1em;
+        }
+        a {
+            font-size: 5px;
+        }
+        p {
+            background: black;
+            color: white;
+            box-shadow: 0 0 0 2px #888;
+            margin-bottom: 15px;
+
+            border: 3px solid #cfcfcf; /* outer border */
+            padding: 5px;
+            font-size: 5px;
+        }
+        h2 {
+            background: black;
+            color: white;
+            box-shadow: 0 0 0 2px #888;
+            margin-bottom: 25px;
+
+            border: 3px solid #cfcfcf; /* outer border */
+            padding: 10px;
+            font-size: 7px;
+        }
+        img {
+            max-width: 150px;
+            height: auto;
+        }
+    }
+    
     </style>
 </head>
 
@@ -208,7 +297,7 @@
         <button onclick="showTab('projects', 'Projects', 'images/Yumetired.png')">Projects</button>
         <button onclick="showTab('journal', 'Journal', 'images/UroMusic.png')">Journal</button>
         <button onclick="showTab('fav media', 'Fav Media', 'images/UroWhat!.png')">Fav Media</button>
-        <button onclick="showTab('inspirations', 'Inspirations', 'images/UroHat.png')">Inspirations</button>
+        <button onclick="showTab('inspo', 'Inspiratons', 'images/UroHat.png')">inspo</button>
         <button onclick="showTab('find me', 'Find me', 'images/UroCat.png')">Find me</button>
     </div>
 
@@ -230,7 +319,7 @@
             <h2>Some of my favorite pieces of media in shows/movies/games/other</h2>
         </div>        
 
-        <div id="inspirations" class="tab-content" style="display:none;">
+        <div id="inspo" class="tab-content" style="display:none;">
             <h2>A few people who inspired me and the work they've done</h2>
             <p>Tem or Temmie Chang: I first knew of her for her work on Undertale, but I kept up with a lot of her personal work and projects
                 <br><br>
@@ -261,7 +350,7 @@
                     <img src="images/github.png" alt="My github account" class="img-link">
                 </a>
                 <a href="mailto:2007iml@gmail.com" target="_blank">
-                    <img src="images/Gmail.png" alt="Add me on discord!" class="img-link">
+                    <img src="images/Gmail.png" alt="My email" class="img-link">
                 </a>
             </div>
         </div>
